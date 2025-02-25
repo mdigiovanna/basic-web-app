@@ -7,17 +7,33 @@ export default function QueryProcessor(query: string): string {
     );
   }
   
-  if (query.toLowerCase().includes("33 minus 87")) {
-    return "-54";
+  if (query.includes("plus")) {
+    let numbers = query.match(/\d+/g);
+    if (numbers && numbers.length === 2) {
+    return `${parseInt(numbers[0], 10) + parseInt(numbers[1], 10)}`;
+    }
   }
-
-  if (query.toLowerCase().includes("name")) {
-    return "mikey";
+    
+  if (query.includes("minus")) {
+    let numbers = query.match(/\d+/g);
+    if (numbers && numbers.length === 2) {
+    return `${parseInt(numbers[0], 10) - parseInt(numbers[1], 10)}`;
+    }
+  }   
+    
+  if (query.includes("largest")) {
+    let numbers = query.match(/\d+/g);
+    if (numbers) {
+    return `${Math.max(...numbers.map(num => parseInt(num, 10)))}`;
+    }
   }
-
-  if (query.toLowerCase().includes("what is 29 + 61?")) {
-    return "90";
+    
+  if (query.includes("multiplied")) {
+    let numbers = query.match(/\d+/g);
+    if (numbers) {
+    return `${parseInt(numbers[0], 10) * parseInt(numbers[1], 10)}`;
+    }
   }
-
+  
   return "";
 }
