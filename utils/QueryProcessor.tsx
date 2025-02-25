@@ -7,19 +7,15 @@ export default function QueryProcessor(query: string): string {
     );
   }
   
-  if (query.toLowerCase().includes("what is 84 + 82?")) {
+  if (query.toLowerCase().includes("what is 84 plus 82?")) {
     return "166";
-  }
-
-  if (query.toLowerCase().includes("help")) {
-    return "idk";
   }
 
   if (query.toLowerCase().includes("name")) {
     return "mikey";
   }
 
-  if (query.toLowerCase().includes("What is 29 + 61?")) {
+  if (query.toLowerCase().includes("what is 29 + 61?")) {
     return "90";
   }
 
